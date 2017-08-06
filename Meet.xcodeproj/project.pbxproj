@@ -12,6 +12,11 @@
 		38882FD01F26AC2F00C032D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38882FCE1F26AC2F00C032D4 /* Main.storyboard */; };
 		38882FD21F26AC2F00C032D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38882FD11F26AC2F00C032D4 /* Assets.xcassets */; };
 		38882FD51F26AC2F00C032D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38882FD31F26AC2F00C032D4 /* LaunchScreen.storyboard */; };
+		38882FDD1F26ACBC00C032D4 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */; };
+		38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FDE1F26ACCD00C032D4 /* ProfileViewController.swift */; };
+		38882FE11F26AD1A00C032D4 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FE01F26AD1A00C032D4 /* MatchListViewController.swift */; };
+		38882FE31F26AD2900C032D4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FE21F26AD2900C032D4 /* ChatViewController.swift */; };
+		38B5F6CD1F36CA72007F087C /* PeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5F6CC1F36CA72007F087C /* PeerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		38882FD11F26AC2F00C032D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38882FD41F26AC2F00C032D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38882FD61F26AC2F00C032D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		38882FDE1F26ACCD00C032D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		38882FE01F26AD1A00C032D4 /* MatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
+		38882FE21F26AD2900C032D4 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		38B5F6CC1F36CA72007F087C /* PeerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				38882FD11F26AC2F00C032D4 /* Assets.xcassets */,
 				38882FD31F26AC2F00C032D4 /* LaunchScreen.storyboard */,
 				38882FD61F26AC2F00C032D4 /* Info.plist */,
+				38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */,
+				38882FDE1F26ACCD00C032D4 /* ProfileViewController.swift */,
+				38882FE01F26AD1A00C032D4 /* MatchListViewController.swift */,
+				38882FE21F26AD2900C032D4 /* ChatViewController.swift */,
+				38B5F6CC1F36CA72007F087C /* PeerManager.swift */,
 			);
 			path = Meet;
 			sourceTree = "<group>";
@@ -137,7 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38882FE11F26AD1A00C032D4 /* MatchListViewController.swift in Sources */,
+				38882FDD1F26ACBC00C032D4 /* SetupProfileViewController.swift in Sources */,
+				38B5F6CD1F36CA72007F087C /* PeerManager.swift in Sources */,
 				38882FCD1F26AC2F00C032D4 /* ViewController.swift in Sources */,
+				38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */,
+				38882FE31F26AD2900C032D4 /* ChatViewController.swift in Sources */,
 				38882FCB1F26AC2F00C032D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +322,7 @@
 				38882FDB1F26AC2F00C032D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
