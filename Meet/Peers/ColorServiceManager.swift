@@ -1,9 +1,9 @@
 //
-//  PeerManager.swift
+//  ColorServiceManager.swift
 //  Meet
 //
-//  Created by Caelan Dailey on 8/5/17.
-//  Copyright © 2017 Caelan Dailey. All rights reserved.
+//  Created by Caelan Dailey on 6/19/18.
+//  Copyright © 2018 Caelan Dailey. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ protocol ColorServiceManagerDelegate {
     
     func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
     func colorChanged(manager : ColorServiceManager, colorString: [String:String])
-    
+    func showImage(image: UIImageView)
 }
 
 class ColorServiceManager : NSObject {
@@ -49,6 +49,19 @@ class ColorServiceManager : NSObject {
         self.serviceBrowser.startBrowsingForPeers()
     }
     
+    func sendImage(img: UIImage) {
+        
+        if session.connectedPeers.count > 0 {
+            if let imageData = UIImagePNGRepresentation(img) {
+                do {
+                    try session.send(imageData, toPeers: session.connectedPeers, with: .reliable)
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+        }
+        
+    }
     func send(message : [String:String]) {
         NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
         
@@ -119,6 +132,14 @@ extension ColorServiceManager : MCSessionDelegate {
         NSLog("%@", "didReceiveData: \(data)")
         
         //let str = String(data: data, encoding: .utf8)!
+        if let image = UIImage(data: data) {
+            DispatchQueue.main.async { [unowned self] in
+                let image = UIImageView(image: image)
+                
+                self.delegate?.showImage(image: image)
+                
+            }
+        }
         
         if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String] {
             self.delegate?.colorChanged(manager: self, colorString: dictionary)
