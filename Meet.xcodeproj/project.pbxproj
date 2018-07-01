@@ -22,9 +22,10 @@
 		38E26B3720E9649000D212B5 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B3620E9649000D212B5 /* MessageCell.swift */; };
 		38E26B3920E964A000D212B5 /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B3820E964A000D212B5 /* FriendsControllerHelper.swift */; };
 		38E26B3B20E964AE00D212B5 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B3A20E964AE00D212B5 /* ChatLogController.swift */; };
-		38E26B3E20E9652300D212B5 /* Messenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B3C20E9652300D212B5 /* Messenger.xcdatamodeld */; };
 		38E26B4020E965D300D212B5 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B3F20E965D300D212B5 /* BaseCell.swift */; };
 		38E26B4220E9663500D212B5 /* ChatLogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B4120E9663500D212B5 /* ChatLogMessage.swift */; };
+		38E26B4420E967E600D212B5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B4320E967E600D212B5 /* Extensions.swift */; };
+		38E26B4A20E96B1200D212B5 /* FBMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38E26B4820E96B1200D212B5 /* FBMessenger.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +46,10 @@
 		38E26B3620E9649000D212B5 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		38E26B3820E964A000D212B5 /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
 		38E26B3A20E964AE00D212B5 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
-		38E26B3D20E9652300D212B5 /* Messenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Messenger.xcdatamodel; sourceTree = "<group>"; };
 		38E26B3F20E965D300D212B5 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		38E26B4120E9663500D212B5 /* ChatLogMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogMessage.swift; sourceTree = "<group>"; };
+		38E26B4320E967E600D212B5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		38E26B4920E96B1200D212B5 /* FBMessenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FBMessenger.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +121,11 @@
 				38E26B3420E9648600D212B5 /* FriendsController.swift */,
 				38E26B3620E9649000D212B5 /* MessageCell.swift */,
 				38E26B3820E964A000D212B5 /* FriendsControllerHelper.swift */,
+				38E26B4820E96B1200D212B5 /* FBMessenger.xcdatamodeld */,
 				38E26B3A20E964AE00D212B5 /* ChatLogController.swift */,
-				38E26B3C20E9652300D212B5 /* Messenger.xcdatamodeld */,
 				38E26B3F20E965D300D212B5 /* BaseCell.swift */,
 				38E26B4120E9663500D212B5 /* ChatLogMessage.swift */,
+				38E26B4320E967E600D212B5 /* Extensions.swift */,
 			);
 			path = Matched;
 			sourceTree = "<group>";
@@ -154,12 +157,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Caelan Dailey";
 				TargetAttributes = {
 					38882FC61F26AC2F00C032D4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = N3VBXEQWW6;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -201,7 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38E26B3B20E964AE00D212B5 /* ChatLogController.swift in Sources */,
-				38E26B3E20E9652300D212B5 /* Messenger.xcdatamodeld in Sources */,
+				38E26B4A20E96B1200D212B5 /* FBMessenger.xcdatamodeld in Sources */,
 				38882FDD1F26ACBC00C032D4 /* SetupProfileViewController.swift in Sources */,
 				38E26B3720E9649000D212B5 /* MessageCell.swift in Sources */,
 				38E26B4020E965D300D212B5 /* BaseCell.swift in Sources */,
@@ -211,6 +215,7 @@
 				38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */,
 				3807FE6A20D9E46C00683077 /* ColorServiceManager.swift in Sources */,
 				3807FE6420D9E3DB00683077 /* PeersViewController.swift in Sources */,
+				38E26B4420E967E600D212B5 /* Extensions.swift in Sources */,
 				3807FE4420D6090800683077 /* SetupProfileView.swift in Sources */,
 				38E26B3520E9648600D212B5 /* FriendsController.swift in Sources */,
 				38E26B4220E9663500D212B5 /* ChatLogMessage.swift in Sources */,
@@ -250,15 +255,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -287,6 +300,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 			};
 			name = Debug;
 		};
@@ -300,15 +314,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -329,6 +351,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -343,7 +366,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csd.Meet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -357,7 +381,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = csd.Meet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -385,13 +410,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		38E26B3C20E9652300D212B5 /* Messenger.xcdatamodeld */ = {
+		38E26B4820E96B1200D212B5 /* FBMessenger.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				38E26B3D20E9652300D212B5 /* Messenger.xcdatamodel */,
+				38E26B4920E96B1200D212B5 /* FBMessenger.xcdatamodel */,
 			);
-			currentVersion = 38E26B3D20E9652300D212B5 /* Messenger.xcdatamodel */;
-			path = Messenger.xcdatamodeld;
+			currentVersion = 38E26B4920E96B1200D212B5 /* FBMessenger.xcdatamodel */;
+			name = FBMessenger.xcdatamodeld;
+			path = ../../../FBMessenger/FBMessenger/FBMessenger.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

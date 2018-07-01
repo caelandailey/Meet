@@ -33,7 +33,7 @@ extension PeersViewController : ColorServiceManagerDelegate {
         OperationQueue.main.addOperation {
             //self.connectionsLabel.text = "Connections: \(connectedDevices)"
             print(connectedDevices)
-            var message = [ // 2
+            let message = [ // 2
                 "id": "1012",
                 "name": "Caelan Dailey",
                 "intro": "I like dogs",

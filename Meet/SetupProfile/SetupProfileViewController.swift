@@ -47,7 +47,7 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         viewHolder.delegate = self
     }
     
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let testView = UIImageView(image: chosenImage)
         testView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)

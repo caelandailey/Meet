@@ -113,7 +113,8 @@ class SetupProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func doneButtonPressed() {
+    @objc
+    func doneButtonPressed() {
         if let name = nameTextField.text, let location = locationTextField.text, let intro = introTextField.text {
             print("okk")
             delegate?.doneButtonPressed(name: name, location: location, intro: intro)

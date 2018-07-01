@@ -6,6 +6,9 @@
 //  Copyright © 2018 Caelan Dailey. All rights reserved.
 //
 
+import UIKit
+import Foundation
+
 class MessageCell: BaseCell {
     
     override var isHighlighted: Bool {
