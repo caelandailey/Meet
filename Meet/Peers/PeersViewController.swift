@@ -12,23 +12,13 @@ import UIKit
 
 class PeersViewController: UIViewController {
     
- 
-    
     let colorService = ColorServiceManager()
     
     func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        colorService.send(message: messageItem)
-        
-
+        //colorService.send(message: messageItem)
         
     }
-    
-    
-
-  
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorService.delegate = self
@@ -53,15 +43,6 @@ extension PeersViewController : ColorServiceManagerDelegate {
             
             
             //self.colorService.sendImage(img: UIImage(named: "imgTest")!)
-        }
-    }
-    
-    func test(moves: String) -> Bool {
-        var left = 0
-        var right = 0
-        
-        for char in moves {
-            
         }
     }
     
