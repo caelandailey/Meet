@@ -14,6 +14,7 @@ protocol ColorServiceManagerDelegate {
     func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
     func colorChanged(manager : ColorServiceManager, colorString: [String:String])
     func showImage(image: UIImageView)
+    func receivedImage(image: UIImage)
 }
 
 class ColorServiceManager : NSObject {
@@ -23,7 +24,8 @@ class ColorServiceManager : NSObject {
     private let ColorServiceType = "example-color"
     
     // Name of person (Currently set as device name)
-    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    //private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    private let myPeerId = MCPeerID(displayName: "SCott")
     
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
@@ -131,31 +133,41 @@ extension ColorServiceManager : MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         
-        //let str = String(data: data, encoding: .utf8)!
+        
         if let image = UIImage(data: data) {
             DispatchQueue.main.async { [unowned self] in
-                let image = UIImageView(image: image)
+                // let image = UIImageView(image: image)
                 
-                self.delegate?.showImage(image: image)
+                //self.delegate?.showImage(image: image)
                 
+                self.delegate?.receivedImage(image: image)
             }
         }
-        
+    
         if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String] {
-            self.delegate?.colorChanged(manager: self, colorString: dictionary)
+            //self.delegate?.colorChanged(manager: self, colorString: dictionary)
+            if let image = UIImage(data: data) {
+                DispatchQueue.main.async { [unowned self] in
+                   // let image = UIImageView(image: image)
+                    
+                    //self.delegate?.showImage(image: image)
+                    
+                    self.delegate?.receivedImage(image: image)
+                }
+            }
         }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveStream")
+        ///NSLog("%@", "didReceiveStream")
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        NSLog("%@", "didStartReceivingResourceWithName")
+        //NSLog("%@", "didStartReceivingResourceWithName")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        NSLog("%@", "didFinishReceivingResourceWithName")
+        ///NSLog("%@", "didFinishReceivingResourceWithName")
     }
     
 }

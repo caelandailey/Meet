@@ -14,9 +14,34 @@ class PeersViewController: UIViewController {
     
     let colorService = ColorServiceManager()
     
-    func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    private var peersCollectionView: PeersCollectionView {
+        return view as! PeersCollectionView
+    }
+    
+    // Loads the view
+    override func loadView() {
+        super.loadView()
         
-        //colorService.send(message: messageItem)
+        let layout = UICollectionViewFlowLayout()
+        
+        let itemInset:CGFloat = 3
+        let numberOfSectionItems = 3
+        
+        layout.sectionInset = UIEdgeInsets(top: itemInset, left: itemInset, bottom: 0, right: itemInset)
+        let itemHeight = (self.view.frame.width-itemInset)/CGFloat(numberOfSectionItems)
+        let itemWidth = (self.view.frame.width-itemInset*(CGFloat(numberOfSectionItems)+1))/CGFloat(numberOfSectionItems)
+        
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = itemInset
+        layout.scrollDirection = .vertical
+        
+        let myCollectionView = PeersCollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        myCollectionView.dataSource = myCollectionView
+        myCollectionView.delegate = myCollectionView
+        myCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: "MyCell")
+        myCollectionView.backgroundColor = UIColor.white
+        view = myCollectionView
         
     }
     override func viewDidLoad() {
@@ -42,7 +67,7 @@ extension PeersViewController : ColorServiceManagerDelegate {
             self.colorService.send(message: message)
             
             
-            //self.colorService.sendImage(img: UIImage(named: "imgTest")!)
+            self.colorService.sendImage(img: UIImage(named: "websiteIcon")!)
         }
     }
     
@@ -53,6 +78,10 @@ extension PeersViewController : ColorServiceManagerDelegate {
     func showImage(image: UIImageView) {
         image.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         view.addSubview(image)
+    }
+    
+    func receivedImage(image: UIImage) {
+        peersCollectionView.images.append(image)
     }
     
 }
