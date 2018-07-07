@@ -9,12 +9,9 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol ColorServiceManagerDelegate {
+protocol PeerServiceManagerDelegate {
     
     func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
-    func colorChanged(manager : ColorServiceManager, colorString: [String:String])
-    func showImage(image: UIImageView)
-    func receivedImage(image: UIImage)
     func receivedUser(user: User)
 }
 
@@ -66,49 +63,8 @@ class ColorServiceManager : NSObject {
             }
         }
     }
-    func sendImage(img: UIImage) {
-        
-        let user = User(id: "12345", name: "Caelan", location: "Utah", intro: "Hello", image: img)
-        let data = NSKeyedArchiver.archivedData(withRootObject: user)
-        if session.connectedPeers.count > 0 {
-            do {
-                try session.send(data, toPeers: session.connectedPeers, with: .reliable)
-            } catch let error as NSError {
-                print(error)
-            }
-        }
-        /*
-        if session.connectedPeers.count > 0 {
-            if let imageData = UIImagePNGRepresentation(img) {
-                do {
-                    try session.send(imageData, toPeers: session.connectedPeers, with: .reliable)
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-        }
- */
-        
-    }
-    func send(message : [String:String]) {
-        //NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
-        
-        if session.connectedPeers.count > 0 {
-            do {
-                
-                let dataExample: Data = NSKeyedArchiver.archivedData(withRootObject: message)
-                //let dictionary: Dictionary? = NSKeyedUnarchiver.unarchiveObject(with: dataExample) as? [String : String]
-                
-                try self.session.send(dataExample, toPeers: session.connectedPeers, with: .reliable)
-                
-                
-            }
-            catch let error {
-                NSLog("%@", "Error for sending: \(error)")
-            }
-        }
-        
-    }
+    
+
     
     deinit {
         self.serviceAdvertiser.stopAdvertisingPeer()
@@ -120,7 +76,7 @@ class ColorServiceManager : NSObject {
 extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
+        //NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
@@ -133,7 +89,7 @@ extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
 extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
+        //NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
@@ -161,41 +117,12 @@ extension ColorServiceManager : MCSessionDelegate {
         
         
         if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
-            print(user)
-           print(user.name)
+            
             DispatchQueue.main.async { // Make sure you're on the main thread here
              
                 self.delegate?.receivedUser(user: user)
             }
-
-            //self.delegate?.receivedImage(image: user.image)
-            
         }
-        /*
-        if let image = UIImage(data: data) {
-            DispatchQueue.main.async { [unowned self] in
-                // let image = UIImageView(image: image)
-                
-                //self.delegate?.showImage(image: image)
-                
-                self.delegate?.receivedImage(image: image)
-            }
-        }
-    */
-        /*
-        if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String] {
-            //self.delegate?.colorChanged(manager: self, colorString: dictionary)
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async { [unowned self] in
-                   // let image = UIImageView(image: image)
-                    
-                    //self.delegate?.showImage(image: image)
-                    
-                    self.delegate?.receivedImage(image: image)
-                }
-            }
-        }
- */
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

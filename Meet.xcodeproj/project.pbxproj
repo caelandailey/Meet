@@ -10,7 +10,7 @@
 		3807FE4420D6090800683077 /* SetupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807FE4320D6090800683077 /* SetupProfileView.swift */; };
 		3807FE6420D9E3DB00683077 /* PeersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807FE6320D9E3DB00683077 /* PeersViewController.swift */; };
 		3807FE6620D9E3E500683077 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807FE6520D9E3E500683077 /* PeersView.swift */; };
-		3807FE6A20D9E46C00683077 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807FE6920D9E46C00683077 /* ColorServiceManager.swift */; };
+		3807FE6A20D9E46C00683077 /* PeerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807FE6920D9E46C00683077 /* PeerServiceManager.swift */; };
 		38882FCB1F26AC2F00C032D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FCA1F26AC2F00C032D4 /* AppDelegate.swift */; };
 		38882FD21F26AC2F00C032D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38882FD11F26AC2F00C032D4 /* Assets.xcassets */; };
 		38882FDD1F26ACBC00C032D4 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */; };
@@ -33,7 +33,7 @@
 		3807FE4320D6090800683077 /* SetupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileView.swift; sourceTree = "<group>"; };
 		3807FE6320D9E3DB00683077 /* PeersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewController.swift; sourceTree = "<group>"; };
 		3807FE6520D9E3E500683077 /* PeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersView.swift; sourceTree = "<group>"; };
-		3807FE6920D9E46C00683077 /* ColorServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
+		3807FE6920D9E46C00683077 /* PeerServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerServiceManager.swift; sourceTree = "<group>"; };
 		38882FC71F26AC2F00C032D4 /* Meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38882FCA1F26AC2F00C032D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38882FD11F26AC2F00C032D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			children = (
 				3807FE6520D9E3E500683077 /* PeersView.swift */,
 				3807FE6320D9E3DB00683077 /* PeersViewController.swift */,
-				3807FE6920D9E46C00683077 /* ColorServiceManager.swift */,
+				3807FE6920D9E46C00683077 /* PeerServiceManager.swift */,
 				38F763B520E97D29005650EA /* ImageCell.swift */,
 			);
 			path = Peers;
@@ -217,7 +217,7 @@
 				38E26B3920E964A000D212B5 /* FriendsControllerHelper.swift in Sources */,
 				3807FE6620D9E3E500683077 /* PeersView.swift in Sources */,
 				38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */,
-				3807FE6A20D9E46C00683077 /* ColorServiceManager.swift in Sources */,
+				3807FE6A20D9E46C00683077 /* PeerServiceManager.swift in Sources */,
 				3807FE6420D9E3DB00683077 /* PeersViewController.swift in Sources */,
 				38E26B4420E967E600D212B5 /* Extensions.swift in Sources */,
 				3807FE4420D6090800683077 /* SetupProfileView.swift in Sources */,

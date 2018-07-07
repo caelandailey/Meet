@@ -12,8 +12,7 @@ import UIKit
 
 class PeersViewController: UIViewController {
     
-    //let colorService = ColorServiceManager()
-    var colorService: ColorServiceManager? = nil
+    var peerService: PeerServiceManager? = nil
     var user: User? = nil
     
     private var peersCollectionView: PeersCollectionView {
@@ -50,51 +49,22 @@ class PeersViewController: UIViewController {
         super.viewDidLoad()
         colorService = ColorServiceManager(ID: (user?.id)!)
         colorService?.delegate = self
-        //colorService.delegate = self
 
     }
   
 }
 
-extension PeersViewController : ColorServiceManagerDelegate {
+extension PeersViewController : PeerServiceManagerDelegate {
     
-    func connectedDevicesChanged(manager: ColorServiceManager, connectedDevices: [String]) {
+    func connectedDevicesChanged(manager: PeerServiceManager, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            //self.connectionsLabel.text = "Connections: \(connectedDevices)"
+   
             print(connectedDevices)
-            let message = [ // 2
-                "id": "1012",
-                //"name": self.userName!,
-                "name": "bobbbie",
-                "intro": "I like dogs",
-                "location" : "Utah"
-                ]
-            //self.colorService?.send(message: message)
             
-            
-            //self.colorService.sendImage(img: UIImage(named: "websiteIcon")!)
-            //self.colorService?.sendImage(img: self.userImage)
             if let user = self.user {
                 self.colorService?.sendUser(user: user)
             }
-            
-            //self.colorService.sendImage(img: self.userImage!)
         }
-    }
-    
-    func colorChanged(manager: ColorServiceManager, colorString: [String: String]) {
-        print(colorString)
-    }
-    
-    func showImage(image: UIImageView) {
-        image.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        view.addSubview(image)
-    }
-    
-    func receivedImage(image: UIImage) {
-        let user = User(id: "bob", name: "dailey", location: "utah", intro: "hello", image: image)
-        peersCollectionView.users.append(user)
-       // peersCollectionView.images.append(image)
     }
     
     func receivedUser(user: User) {
