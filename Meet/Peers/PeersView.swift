@@ -14,6 +14,7 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     
     let itemsPerSection = 3
     
+    
     var images: [UIImage] = [] {
         didSet{
            reloadData()
@@ -23,35 +24,37 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     
     var users: [User] = [] {
         didSet{
-           // reloadData()
-           // setNeedsDisplay()
+           reloadData()
+           setNeedsDisplay()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return itemsPerSection
-        return 3
+        //return 12
+        return itemsPerSection
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        //return images.count/itemsPerSection
-        return 1
+        return (users.count/itemsPerSection) + 1
+        //return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         print("loading cell~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! ImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! ImageCell
         
         print(indexPath.row + (indexPath.section*itemsPerSection))
         
         let position = indexPath.row + (indexPath.section*itemsPerSection)
-        if(position < images.count) {
+        if(position < users.count) {
             
-            //myCell.imageView.image = users[position].image
-            myCell.imageView.image = images[position]
+            let user = users[position]
+            cell.imageView.image = user.image
+            cell.nameLabel.text = user.name
         }
         
-        return myCell
+        return cell
     }
     
     

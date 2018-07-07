@@ -17,8 +17,11 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         return view as! SetupProfileView
     }
     
-    func doneButtonPressed(name: String, location: String, intro: String) {
-        print("yes")
+    func doneButtonPressed(name: String, location: String, intro: String, image: UIImage) {
+        let viewController = PeersViewController()
+        viewController.userImage = image
+        viewController.userName = name
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     // Loads the view
@@ -53,7 +56,7 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         testView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         self.view.addSubview(testView)
         //imageView.image = chosenImage
-        
+        viewHolder.userImage = chosenImage
         dismiss(animated: true, completion: nil)
     }
     

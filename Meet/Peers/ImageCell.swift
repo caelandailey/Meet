@@ -18,6 +18,12 @@ class ImageCell: UICollectionViewCell {
         return imageView
     }()
     
+    var nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.textAlignment = .center
+        return nameLabel
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         
@@ -31,7 +37,9 @@ class ImageCell: UICollectionViewCell {
     func setupViews() {
         
         imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        nameLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         addSubview(imageView)
+        addSubview(nameLabel)
     }
     
 }

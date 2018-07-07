@@ -79,8 +79,8 @@
 		3807FE6820D9E3F400683077 /* SetupProfile */ = {
 			isa = PBXGroup;
 			children = (
-				38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */,
 				3807FE4320D6090800683077 /* SetupProfileView.swift */,
+				38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */,
 				38F763B320E97AE7005650EA /* User.swift */,
 			);
 			path = SetupProfile;

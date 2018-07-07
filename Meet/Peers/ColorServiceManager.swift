@@ -21,11 +21,11 @@ class ColorServiceManager : NSObject {
     
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
-    private let ColorServiceType = "example-color"
+    private let ColorServiceType = "Pear"
     
     // Name of person (Currently set as device name)
     //private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
-    private let myPeerId = MCPeerID(displayName: "SCott")
+    private var myPeerId = MCPeerID(displayName: "David")
     
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
@@ -38,7 +38,11 @@ class ColorServiceManager : NSObject {
         return session
     }()
     
-    override init() {
+    init(ID: String) {
+    //override init() {
+        
+        myPeerId = MCPeerID(displayName: ID)
+        
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ColorServiceType)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ColorServiceType)
         
@@ -65,7 +69,7 @@ class ColorServiceManager : NSObject {
         
     }
     func send(message : [String:String]) {
-        NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
+        //NSLog("%@", "sendColor: \(message) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
@@ -125,13 +129,13 @@ extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
 extension ColorServiceManager : MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        NSLog("%@", "peer \(peerID) didChangeState: \(state)")
+        //NSLog("%@", "peer \(peerID) didChangeState: \(state)")
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
+        //NSLog("%@", "didReceiveData: \(data)")
         
         
         if let image = UIImage(data: data) {

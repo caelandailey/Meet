@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol SetupProfileViewDelegate: AnyObject {
-    func doneButtonPressed(name: String, location: String, intro: String)
+    func doneButtonPressed(name: String, location: String, intro: String, image: UIImage)
     func imageButtonPressed()
 }
 
@@ -22,7 +22,7 @@ class SetupProfileView: UIView {
     var imagePicker = UIImagePickerController()
     
     // Objects~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    let userImage: UIImage = {
+    var userImage: UIImage = {
         let userImage = UIImage()
         return userImage
     }()
@@ -117,7 +117,7 @@ class SetupProfileView: UIView {
     func doneButtonPressed() {
         if let name = nameTextField.text, let location = locationTextField.text, let intro = introTextField.text {
             print("okk")
-            delegate?.doneButtonPressed(name: name, location: location, intro: intro)
+            delegate?.doneButtonPressed(name: name, location: location, intro: intro, image: userImage)
         }
         
     }
