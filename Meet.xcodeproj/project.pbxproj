@@ -27,6 +27,7 @@
 		38F763B220E97971005650EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F763B120E97971005650EA /* Default-568h@2x.png */; };
 		38F763B420E97AE7005650EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B320E97AE7005650EA /* User.swift */; };
 		38F763B620E97D29005650EA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B520E97D29005650EA /* ImageCell.swift */; };
+		38F763B820F16994005650EA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B720F16994005650EA /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		38F763B120E97971005650EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		38F763B320E97AE7005650EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		38F763B520E97D29005650EA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		38F763B720F16994005650EA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				3807FE4320D6090800683077 /* SetupProfileView.swift */,
 				38882FDC1F26ACBC00C032D4 /* SetupProfileViewController.swift */,
 				38F763B320E97AE7005650EA /* User.swift */,
+				38F763B720F16994005650EA /* CustomTextField.swift */,
 			);
 			path = SetupProfile;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				38F763B420E97AE7005650EA /* User.swift in Sources */,
 				38F763B620E97D29005650EA /* ImageCell.swift in Sources */,
 				38E26B3920E964A000D212B5 /* FriendsControllerHelper.swift in Sources */,
+				38F763B820F16994005650EA /* CustomTextField.swift in Sources */,
 				3807FE6620D9E3E500683077 /* PeersView.swift in Sources */,
 				38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */,
 				3807FE6A20D9E46C00683077 /* PeerServiceManager.swift in Sources */,

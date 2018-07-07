@@ -18,8 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let nav = UINavigationController(rootViewController: SetupProfileViewController())
+        UIApplication.shared.statusBarStyle = .lightContent
         
+        let nav = UINavigationController(rootViewController: SetupProfileViewController())
+        //nav.isNavigationBarHidden = true
+        nav.navigationBar.backgroundColor = UIColor(red: 0/256, green: 128/256, blue: 128/256, alpha: 1.0)
+        
+        nav.navigationBar.barTintColor = UIColor(red: 0/256, green: 128/256, blue: 128/256, alpha: 1.0)
+        nav.navigationBar.isTranslucent = false
+        //nav.navigationItem.title = "Profile"
+
         window!.rootViewController = nav
         window?.makeKeyAndVisible()
         

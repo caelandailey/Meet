@@ -11,15 +11,15 @@ import MultipeerConnectivity
 
 protocol PeerServiceManagerDelegate {
     
-    func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
+    func connectedDevicesChanged(manager : PeerServiceManager, connectedDevices: [String])
     func receivedUser(user: User)
 }
 
-class ColorServiceManager : NSObject {
+class PeerServiceManager : NSObject {
     
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
-    private let ColorServiceType = "Pear"
+    private let PeerServiceType = "Pear"
     
     // Name of person (Currently set as device name)
     //private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
@@ -28,7 +28,7 @@ class ColorServiceManager : NSObject {
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
     
-    var delegate : ColorServiceManagerDelegate?
+    var delegate : PeerServiceManagerDelegate?
     
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
@@ -41,8 +41,8 @@ class ColorServiceManager : NSObject {
         
         myPeerId = MCPeerID(displayName: ID)
         
-        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ColorServiceType)
-        self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ColorServiceType)
+        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: PeerServiceType)
+        self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: PeerServiceType)
         
         super.init()
         
@@ -73,7 +73,7 @@ class ColorServiceManager : NSObject {
     
 }
 
-extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
+extension PeerServiceManager : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         //NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
@@ -86,7 +86,7 @@ extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
     
 }
 
-extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
+extension PeerServiceManager : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         //NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
@@ -104,7 +104,7 @@ extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
     
 }
 
-extension ColorServiceManager : MCSessionDelegate {
+extension PeerServiceManager : MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         //NSLog("%@", "peer \(peerID) didChangeState: \(state)")

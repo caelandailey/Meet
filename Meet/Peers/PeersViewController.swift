@@ -22,7 +22,7 @@ class PeersViewController: UIViewController {
     // Loads the view
     override func loadView() {
         super.loadView()
-        
+      
         let layout = UICollectionViewFlowLayout()
         
         let itemInset:CGFloat = 3
@@ -47,8 +47,8 @@ class PeersViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorService = ColorServiceManager(ID: (user?.id)!)
-        colorService?.delegate = self
+        peerService = PeerServiceManager(ID: (user?.id)!)
+        peerService?.delegate = self
 
     }
   
@@ -62,7 +62,7 @@ extension PeersViewController : PeerServiceManagerDelegate {
             print(connectedDevices)
             
             if let user = self.user {
-                self.colorService?.sendUser(user: user)
+                self.peerService?.sendUser(user: user)
             }
         }
     }
