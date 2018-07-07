@@ -19,8 +19,7 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
     
     func doneButtonPressed(name: String, location: String, intro: String, image: UIImage) {
         let viewController = PeersViewController()
-        viewController.userImage = image
-        viewController.userName = name
+        viewController.user = User(id: "12345", name: name, location: location, intro: intro, image: image)
         navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -14,9 +14,7 @@ class PeersViewController: UIViewController {
     
     //let colorService = ColorServiceManager()
     var colorService: ColorServiceManager? = nil
-    
-    var userImage: UIImage = UIImage(named: "websiteIcon")!
-    var userName: String = "Test"
+    var user: User? = nil
     
     private var peersCollectionView: PeersCollectionView {
         return view as! PeersCollectionView
@@ -50,7 +48,7 @@ class PeersViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorService = ColorServiceManager(ID: userName)
+        colorService = ColorServiceManager(ID: (user?.id)!)
         colorService?.delegate = self
         //colorService.delegate = self
 
@@ -75,7 +73,11 @@ extension PeersViewController : ColorServiceManagerDelegate {
             
             
             //self.colorService.sendImage(img: UIImage(named: "websiteIcon")!)
-            self.colorService?.sendImage(img: self.userImage)
+            //self.colorService?.sendImage(img: self.userImage)
+            if let user = self.user {
+                self.colorService?.sendUser(user: user)
+            }
+            
             //self.colorService.sendImage(img: self.userImage!)
         }
     }
@@ -93,6 +95,10 @@ extension PeersViewController : ColorServiceManagerDelegate {
         let user = User(id: "bob", name: "dailey", location: "utah", intro: "hello", image: image)
         peersCollectionView.users.append(user)
        // peersCollectionView.images.append(image)
+    }
+    
+    func receivedUser(user: User) {
+        peersCollectionView.users.append(user)
     }
     
 }

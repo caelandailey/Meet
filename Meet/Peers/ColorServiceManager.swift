@@ -15,6 +15,7 @@ protocol ColorServiceManagerDelegate {
     func colorChanged(manager : ColorServiceManager, colorString: [String:String])
     func showImage(image: UIImageView)
     func receivedImage(image: UIImage)
+    func receivedUser(user: User)
 }
 
 class ColorServiceManager : NSObject {
@@ -55,8 +56,28 @@ class ColorServiceManager : NSObject {
         self.serviceBrowser.startBrowsingForPeers()
     }
     
+    func sendUser(user: User) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: user)
+        if session.connectedPeers.count > 0 {
+            do {
+                try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+    }
     func sendImage(img: UIImage) {
         
+        let user = User(id: "12345", name: "Caelan", location: "Utah", intro: "Hello", image: img)
+        let data = NSKeyedArchiver.archivedData(withRootObject: user)
+        if session.connectedPeers.count > 0 {
+            do {
+                try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        /*
         if session.connectedPeers.count > 0 {
             if let imageData = UIImagePNGRepresentation(img) {
                 do {
@@ -66,6 +87,7 @@ class ColorServiceManager : NSObject {
                 }
             }
         }
+ */
         
     }
     func send(message : [String:String]) {
@@ -138,6 +160,18 @@ extension ColorServiceManager : MCSessionDelegate {
         //NSLog("%@", "didReceiveData: \(data)")
         
         
+        if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
+            print(user)
+           print(user.name)
+            DispatchQueue.main.async { // Make sure you're on the main thread here
+             
+                self.delegate?.receivedUser(user: user)
+            }
+
+            //self.delegate?.receivedImage(image: user.image)
+            
+        }
+        /*
         if let image = UIImage(data: data) {
             DispatchQueue.main.async { [unowned self] in
                 // let image = UIImageView(image: image)
@@ -147,7 +181,8 @@ extension ColorServiceManager : MCSessionDelegate {
                 self.delegate?.receivedImage(image: image)
             }
         }
-    
+    */
+        /*
         if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String] {
             //self.delegate?.colorChanged(manager: self, colorString: dictionary)
             if let image = UIImage(data: data) {
@@ -160,6 +195,7 @@ extension ColorServiceManager : MCSessionDelegate {
                 }
             }
         }
+ */
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
