@@ -28,6 +28,8 @@
 		38F763B420E97AE7005650EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B320E97AE7005650EA /* User.swift */; };
 		38F763B620E97D29005650EA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B520E97D29005650EA /* ImageCell.swift */; };
 		38F763B820F16994005650EA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B720F16994005650EA /* CustomTextField.swift */; };
+		38F763BA20F445D0005650EA /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763B920F445D0005650EA /* NavigationController.swift */; };
+		38F763BC20F44684005650EA /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F763BB20F44684005650EA /* FileHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		38F763B320E97AE7005650EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		38F763B520E97D29005650EA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		38F763B720F16994005650EA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		38F763B920F445D0005650EA /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		38F763BB20F44684005650EA /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				38882FCA1F26AC2F00C032D4 /* AppDelegate.swift */,
+				38F763B920F445D0005650EA /* NavigationController.swift */,
+				38F763BB20F44684005650EA /* FileHandler.swift */,
 				38F763AF20E976A2005650EA /* imgTest.png */,
 				38882FD11F26AC2F00C032D4 /* Assets.xcassets */,
 				38882FD61F26AC2F00C032D4 /* Info.plist */,
@@ -222,8 +228,10 @@
 				3807FE6620D9E3E500683077 /* PeersView.swift in Sources */,
 				38882FDF1F26ACCD00C032D4 /* ProfileViewController.swift in Sources */,
 				3807FE6A20D9E46C00683077 /* PeerServiceManager.swift in Sources */,
+				38F763BA20F445D0005650EA /* NavigationController.swift in Sources */,
 				3807FE6420D9E3DB00683077 /* PeersViewController.swift in Sources */,
 				38E26B4420E967E600D212B5 /* Extensions.swift in Sources */,
+				38F763BC20F44684005650EA /* FileHandler.swift in Sources */,
 				3807FE4420D6090800683077 /* SetupProfileView.swift in Sources */,
 				38E26B3520E9648600D212B5 /* FriendsController.swift in Sources */,
 				38E26B4220E9663500D212B5 /* ChatLogMessage.swift in Sources */,

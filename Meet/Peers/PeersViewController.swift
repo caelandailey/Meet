@@ -50,7 +50,43 @@ class PeersViewController: UIViewController {
         peerService = PeerServiceManager(ID: (user?.id)!)
         peerService?.delegate = self
         self.navigationItem.title = "Peers"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 
+       // self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "profileIcon")
+        
+        //self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "profileIcon")
+        
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = goToProfileButton
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = goToChatsButton
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+
+    }
+    
+    // Refresh table if buggy
+    lazy var goToProfileButton : UIBarButtonItem = {
+        let goToProfileButton = UIBarButtonItem()
+        goToProfileButton.image = UIImage(named: "profileIcon")
+        goToProfileButton.action = #selector(goToProfile)
+        goToProfileButton.target = self
+        goToProfileButton.style = .plain
+        return goToProfileButton
+    }()
+    
+    // Refresh table if buggy
+    lazy var goToChatsButton : UIBarButtonItem = {
+        let goToChatsButton = UIBarButtonItem()
+        goToChatsButton.image = UIImage(named: "chat_icon")
+        //goToChatsButton.action = #selector(goToProfile)
+        goToChatsButton.target = self
+        goToChatsButton.style = .plain
+        return goToChatsButton
+    }()
+    
+    @objc
+    func goToProfile() {
+        navigationController?.pushViewController(SetupProfileViewController(), animated: true)
     }
   
 }

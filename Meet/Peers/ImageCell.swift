@@ -26,7 +26,7 @@ class ImageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame:frame)
-        self.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
+        
         setupViews()
     }
     

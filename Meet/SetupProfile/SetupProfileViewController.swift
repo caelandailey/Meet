@@ -21,23 +21,14 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         let viewController = PeersViewController()
         let user = User(id: "12345", name: name, intro: intro, image: image)
         saveData(user: user)
-        //viewController.user = user
-        //navigationController?.pushViewController(viewController, animated: true)
+        viewController.user = user
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     // Loads the view
     override func loadView() {
         
         view = SetupProfileView()
-  
-        let user = loadData()
-        
-        if(user != nil) {
-            print("yesss not nil")
-            print(user?.name)
-        } else {
-            print("NO USER")
-        }
 
     }
     
@@ -110,7 +101,7 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         guard
             // Get data
             
-            let fileURL: URL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("FinishedDataset.json", isDirectory: false)
+            let fileURL: URL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("userProfile.json", isDirectory: false)
             else {
                 print("failed")
                 return

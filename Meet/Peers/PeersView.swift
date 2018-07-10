@@ -52,6 +52,7 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
             let user = users[position]
             cell.imageView.image = user.image
             cell.nameLabel.text = user.name
+            cell.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
         }
         
         return cell

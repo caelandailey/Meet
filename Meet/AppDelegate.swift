@@ -19,8 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
+        var nav = UINavigationController(rootViewController: SetupProfileViewController())
         
-        let nav = UINavigationController(rootViewController: SetupProfileViewController())
+        if let user =  loadData() {
+            let controller = PeersViewController()
+            controller.user = user
+            nav = UINavigationController(rootViewController: controller)
+        }
+        
+        
         //nav.isNavigationBarHidden = true
         nav.navigationBar.backgroundColor = UIColor(red: 0/256, green: 128/256, blue: 128/256, alpha: 1.0)
         
@@ -101,6 +108,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    let fileLocation = "userProfile.json"
+    
+    // Codable loaddata
+    public func loadData() -> User? {
+        
+        var loadedData: User?
+        
+        guard
+            // get url
+            let fileURL: URL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(fileLocation, isDirectory: false),
+            let encodedDataset: Data = try? Data(contentsOf: fileURL, options: [])
+            
+            else {
+                return nil  // Return nothing
+        }
+        do {
+            
+            if let user = NSKeyedUnarchiver.unarchiveObject(with: encodedDataset) as? User {
+                
+                loadedData = user
+            }
+            // try decoding
+            
+        }
+        
+        return loadedData
     }
     
 }
