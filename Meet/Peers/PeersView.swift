@@ -61,6 +61,12 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         print(indexPath.row + (indexPath.section*itemsPerSection))
+        
+        let cell = self.cellForItem(at: indexPath) as! ImageCell
+        let newCell = ImageCell()
+        newCell.imageView = cell.imageView
+        newCell.frame = CGRect(x:cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width, height: cell.frame.height)
+        animateImageView(imageView: newCell.imageView)
     }
     
     let blackBackgroundView = UIView()
@@ -71,11 +77,11 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     
     func animateImageView(imageView: UIImageView) {
         
-        self.statusImageView = imageView
+      self.statusImageView = imageView
         
         if var startingFrame = imageView.superview?.convert(imageView.frame, to: nil){
             
-            startingFrame = CGRect(x: startingFrame.origin.x, y: startingFrame.origin.y-20-44, width: startingFrame.width, height: startingFrame.height)
+            startingFrame = CGRect(x: startingFrame.origin.x, y: startingFrame.origin.y, width: startingFrame.width, height: startingFrame.height)
             imageView.alpha = 0
             
             blackBackgroundView.frame = self.frame
@@ -131,7 +137,7 @@ class PeersCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     @objc func zoomOut() {
         if var startingFrame = statusImageView?.superview?.convert((statusImageView?.frame)!, to: nil){
             
-            startingFrame = CGRect(x: startingFrame.origin.x, y: startingFrame.origin.y-20-44, width: startingFrame.width, height: startingFrame.height)
+            startingFrame = CGRect(x: startingFrame.origin.x, y: startingFrame.origin.y, width: startingFrame.width, height: startingFrame.height)
             
             UIView.animate(withDuration: 0.75, animations: {
                 () -> Void in

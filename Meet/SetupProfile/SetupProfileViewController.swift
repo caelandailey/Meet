@@ -19,8 +19,10 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
     
     func doneButtonPressed(name: String, intro: String, image: UIImage) {
         let viewController = PeersViewController()
-        viewController.user = User(id: "12345", name: name, intro: intro, image: image)
-        navigationController?.pushViewController(viewController, animated: true)
+        let user = User(id: "12345", name: name, intro: intro, image: image)
+        saveData(user: user)
+        //viewController.user = user
+        //navigationController?.pushViewController(viewController, animated: true)
     }
     
     // Loads the view
@@ -28,6 +30,14 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         
         view = SetupProfileView()
   
+        let user = loadData()
+        
+        if(user != nil) {
+            print("yesss not nil")
+            print(user?.name)
+        } else {
+            print("NO USER")
+        }
 
     }
     
@@ -59,6 +69,60 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         
         viewHolder.userImageView.image = chosenImage
         dismiss(animated: true, completion: nil)
+    }
+    
+    private static let entriesEncoder: JSONEncoder = {
+        let entriesEncoder = JSONEncoder()
+        entriesEncoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        return entriesEncoder
+    }()
+    
+    // Codable loaddata
+    private func loadData() -> User? {
+        var loadedData: User?
+        
+        
+        guard
+            // get url
+            let fileURL: URL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("FinishedDataset.json", isDirectory: false),
+            let encodedDataset: Data = try? Data(contentsOf: fileURL, options: [])
+            
+            else {
+                return nil  // Return nothing
+        }
+        do {
+            
+            if let user = NSKeyedUnarchiver.unarchiveObject(with: encodedDataset) as? User {
+                
+               loadedData = user
+            }
+            // try decoding
+            
+        }
+        
+        return loadedData
+    }
+    
+    private func saveData(user: User) {
+        
+        
+        
+        guard
+            // Get data
+            
+            let fileURL: URL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("FinishedDataset.json", isDirectory: false)
+            else {
+                print("failed")
+                return
+        }
+        do {
+            // Try to write
+            let encodedDataset = NSKeyedArchiver.archivedData(withRootObject: user)
+            try encodedDataset.write(to: fileURL, options: [.atomic, .completeFileProtection])
+
+        }catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

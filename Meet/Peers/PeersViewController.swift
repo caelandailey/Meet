@@ -25,10 +25,10 @@ class PeersViewController: UIViewController {
       
         let layout = UICollectionViewFlowLayout()
         
-        let itemInset:CGFloat = 3
+        let itemInset:CGFloat = 5
         let numberOfSectionItems = 2
         
-        layout.sectionInset = UIEdgeInsets(top: itemInset, left: itemInset, bottom: 0, right: itemInset)
+        layout.sectionInset = UIEdgeInsets(top: itemInset, left: itemInset, bottom: itemInset, right: itemInset)
         let itemHeight = ((self.view.frame.width-itemInset)/CGFloat(numberOfSectionItems))*1.5
         let itemWidth = (self.view.frame.width-itemInset*(CGFloat(numberOfSectionItems)+1))/CGFloat(numberOfSectionItems)
         
@@ -41,7 +41,7 @@ class PeersViewController: UIViewController {
         myCollectionView.dataSource = myCollectionView
         myCollectionView.delegate = myCollectionView
         myCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: "MyCell")
-        myCollectionView.backgroundColor = UIColor.white
+        myCollectionView.backgroundColor = UIColor(red: 250/255, green: 255/255, blue: 255/255, alpha: 1.0)
         view = myCollectionView
         
     }
