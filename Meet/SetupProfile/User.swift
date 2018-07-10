@@ -36,11 +36,10 @@ class User: NSObject, NSCoding {
     var intro: String!
     var image: UIImage!
     
-    convenience init(id: String, name: String, location: String, intro: String, image: UIImage) {
+    convenience init(id: String, name: String, intro: String, image: UIImage) {
         self.init()
         self.id = id
         self.name = name
-        self.location = location
         self.intro = intro
         self.image = image
     }
@@ -51,7 +50,7 @@ class User: NSObject, NSCoding {
 
         self.id = aDecoder.decodeObject(forKey: "id") as! String
         self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.location = aDecoder.decodeObject(forKey: "location") as! String
+       
         self.intro = aDecoder.decodeObject(forKey: "intro") as! String
         self.image = aDecoder.decodeObject(forKey: "image") as! UIImage
     }
@@ -64,9 +63,7 @@ class User: NSObject, NSCoding {
         if let name = name {
             anEncoder.encode(name, forKey: "name")
         }
-        if let location = location {
-            anEncoder.encode(location, forKey: "location")
-        }
+        
         if let intro = intro {
             anEncoder.encode(intro, forKey: "intro")
         }

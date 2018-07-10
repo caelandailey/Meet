@@ -26,7 +26,7 @@ class ImageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame:frame)
-        
+        self.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
         setupViews()
     }
     
@@ -36,8 +36,8 @@ class ImageCell: UICollectionViewCell {
     
     func setupViews() {
         
-        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-        nameLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
+        nameLabel.frame = CGRect(x: 0, y: frame.width, width: frame.width, height: frame.height-frame.width)
         addSubview(imageView)
         addSubview(nameLabel)
     }

@@ -26,10 +26,10 @@ class PeersViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         
         let itemInset:CGFloat = 3
-        let numberOfSectionItems = 3
+        let numberOfSectionItems = 2
         
         layout.sectionInset = UIEdgeInsets(top: itemInset, left: itemInset, bottom: 0, right: itemInset)
-        let itemHeight = (self.view.frame.width-itemInset)/CGFloat(numberOfSectionItems)
+        let itemHeight = ((self.view.frame.width-itemInset)/CGFloat(numberOfSectionItems))*1.5
         let itemWidth = (self.view.frame.width-itemInset*(CGFloat(numberOfSectionItems)+1))/CGFloat(numberOfSectionItems)
         
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
@@ -49,6 +49,7 @@ class PeersViewController: UIViewController {
         super.viewDidLoad()
         peerService = PeerServiceManager(ID: (user?.id)!)
         peerService?.delegate = self
+        self.navigationItem.title = "Peers"
 
     }
   

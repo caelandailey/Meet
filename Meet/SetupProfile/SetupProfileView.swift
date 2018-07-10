@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol SetupProfileViewDelegate: AnyObject {
-    func doneButtonPressed(name: String, location: String, intro: String, image: UIImage)
+    func doneButtonPressed(name: String, intro: String, image: UIImage)
     func imageButtonPressed()
 }
 
@@ -131,7 +131,7 @@ class SetupProfileView: UIView {
         super.init(frame: frame)
 
         
-        self.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 1.0)
         
         
         
@@ -202,9 +202,8 @@ class SetupProfileView: UIView {
     
     @objc
     func doneButtonPressed() {
-        if let name = nameTextField.text, let location = locationTextField.text, let intro = introTextField.text {
-            print("okk")
-            delegate?.doneButtonPressed(name: name, location: location, intro: intro, image: userImage)
+        if let name = nameTextField.text, let intro = introTextField.text , let image = userImageView.image{
+            delegate?.doneButtonPressed(name: name, intro: intro, image: image)
         }
         
     }

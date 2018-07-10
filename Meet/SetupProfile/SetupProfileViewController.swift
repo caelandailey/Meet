@@ -17,9 +17,9 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
         return view as! SetupProfileView
     }
     
-    func doneButtonPressed(name: String, location: String, intro: String, image: UIImage) {
+    func doneButtonPressed(name: String, intro: String, image: UIImage) {
         let viewController = PeersViewController()
-        viewController.user = User(id: "12345", name: name, location: location, intro: intro, image: image)
+        viewController.user = User(id: "12345", name: name, intro: intro, image: image)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -56,6 +56,7 @@ class SetupProfileViewController: UIViewController, SetupProfileViewDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
+        
         viewHolder.userImageView.image = chosenImage
         dismiss(animated: true, completion: nil)
     }
